@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "rizq",
+      "runtimeExecutable": "/Applications/Kimi.app/Contents/Resources/resources/runtime/node",
+      "runtimeArgs": ["node_modules/vite/bin/vite.js", "--port", "5180"],
+      "port": 5180
+    },
+    {
+      "name": "rizq-dist",
+      "runtimeExecutable": "/Applications/Kimi.app/Contents/Resources/resources/runtime/node",
+      "runtimeArgs": ["serve-dist.mjs"],
+      "port": 4188
+    }
+  ]
+}

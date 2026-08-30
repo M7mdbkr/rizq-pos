@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --rz-fg: 245 245 245; /* foreground text (dark theme) */
+}
+
+html.light {
+  color-scheme: light;
+  --rz-fg: 26 26 26; /* foreground text (light theme) */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'Tajawal', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer base {
+  body {
+    @apply bg-rizq-black text-rizq-light;
+  }
+  html.light body {
+    @apply bg-[#F4F2EC] text-rizq-charcoal;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: 'Reem Kufi', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-feature-settings: 'tnum';
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .gold-gradient {
+    background: linear-gradient(135deg, #e5c158 0%, #d4af37 50%, #b8941f 100%);
+  }
+  .surface {
+    @apply bg-rizq-charcoal/80 border border-white/5;
+  }
+  html.light .surface {
+    @apply border-black/5 bg-white;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Light theme overrides for the dark-first translucent utilities.
+   These appear after @tailwind utilities so they win the cascade.
+   --------------------------------------------------------------- */
+html.light .bg-rizq-black {
+  background-color: #f4f2ec;
+}
+html.light .bg-rizq-charcoal\/95 {
+  background-color: #ffffff;
+}
+
+/* subtle raised panels (white/X on dark -> black/X on light) */
+html.light .bg-white\/5 {
+  background-color: rgb(0 0 0 / 0.04);
+}
+html.light .bg-white\/8 {
+  background-color: rgb(0 0 0 / 0.06);
+}
+html.light .bg-white\/10 {
+  background-color: rgb(0 0 0 / 0.08);
+}
+html.light .bg-white\/15 {
+  background-color: rgb(0 0 0 / 0.13);
+}
+html.light .hover\:bg-white\/5:hover {
+  background-color: rgb(0 0 0 / 0.04);
+}
+html.light .hover\:bg-white\/10:hover {
+  background-color: rgb(0 0 0 / 0.07);
+}
+
+/* inputs & inset panels (black/X stays subtle on light) */
+html.light .bg-black\/5 {
+  background-color: rgb(0 0 0 / 0.04);
+}
+html.light .bg-black\/10 {
+  background-color: rgb(0 0 0 / 0.04);
+}
+html.light .bg-black\/20 {
+  background-color: rgb(0 0 0 / 0.04);
+}
+html.light .bg-black\/30 {
+  background-color: rgb(0 0 0 / 0.05);
+}
+html.light .hover\:bg-black\/30:hover {
+  background-color: rgb(0 0 0 / 0.07);
+}
+
+/* borders & dividers */
+html.light .border-white\/5 {
+  border-color: rgb(0 0 0 / 0.08);
+}
+html.light .border-white\/10 {
+  border-color: rgb(0 0 0 / 0.12);
+}
+html.light .border-white\/20 {
+  border-color: rgb(0 0 0 / 0.18);
+}
+html.light .divide-white\/5 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgb(0 0 0 / 0.08);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.3);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.5);
+}
